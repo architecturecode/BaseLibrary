@@ -1,2 +1,0 @@
-com/base/library/BuildConfig.java
- com.base.library.BuildConfig
