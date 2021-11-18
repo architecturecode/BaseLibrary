@@ -1,16 +1,13 @@
 package com.base.library.app.network
 
-import android.util.Log
 import com.base.baselibrary.network.BaseNetworkAPi
-import com.base.baselibrary.network.interceptor.HeaderInterceptor
 import com.base.baselibrary.network.interceptor.LogInterceptor
 import com.base.library.BuildConfig
+import com.base.library.app.network.interceptor.CommonParamsInterceptor
+import com.base.library.app.network.interceptor.HeaderInterceptor
 import com.google.gson.GsonBuilder
-import okhttp3.Cache
 import okhttp3.OkHttpClient
-import okhttp3.internal.cache.CacheInterceptor
 import retrofit2.converter.gson.GsonConverterFactory
-import java.io.File
 import java.util.concurrent.TimeUnit
 
 /**
@@ -41,14 +38,16 @@ class NetworkApi : BaseNetworkAPi() {
         builder.apply {
 //            cache(Cache(File(app)))
 //            cookieJar()
-            //示例：添加公共heads 注意要设置在日志拦截器之前，不然Log中会不显示head信息
-//            addInterceptor(HeaderInterceptor())
+                //示例：添加公共heads 注意要设置在日志拦截器之前，不然Log中会不显示head信息
+            addInterceptor(HeaderInterceptor())
+                // 示例：添加公共heads 注意要设置在日志拦截器之前，不然Log中会不显示head信息
+            addInterceptor(CommonParamsInterceptor())
             //添加缓存拦截器 可传入缓存天数，不传默认7天
 //            addInterceptor(CacheInterceptor())
             // 日志拦截器
             addInterceptor(LogInterceptor(BuildConfig.DEBUG))
             //超时时间 连接、读、写
-            connectTimeout(100, TimeUnit.SECONDS)
+            connectTimeout(10, TimeUnit.SECONDS)
             readTimeout(5, TimeUnit.SECONDS)
             writeTimeout(5, TimeUnit.SECONDS)
 

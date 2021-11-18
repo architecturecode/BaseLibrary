@@ -3,10 +3,12 @@ package com.base.baselibrary.network.interceptor
 import android.util.Log
 import okhttp3.Headers
 import okhttp3.Interceptor
+import okhttp3.Request
 import okhttp3.Response
 import okio.Buffer
 import okio.EOFException
 import okio.GzipSource
+import okio.IOException
 import java.nio.charset.Charset
 import java.util.concurrent.TimeUnit
 
@@ -44,6 +46,11 @@ class LogInterceptor(val logEnable: Boolean) : Interceptor {
         }
         Log.i("HttpLogging", "【Http】Request $method end")
 
+        if ("POST"==method){
+            Log.i("HttpLogging", "【Http】[body content]${bodyToString(request)}")
+        }
+
+
         //
         Log.i("HttpLogging", "【Http】Response $method start")
         val startNs = System.nanoTime()
@@ -72,6 +79,7 @@ class LogInterceptor(val logEnable: Boolean) : Interceptor {
                 Log.i("HttpLogging", "【Http】[message]${it}")
             }
         }
+
         val contentLength = responseBody?.contentLength()
         val bodySize = if (contentLength != -1L) "$contentLength-byte" else "unknown-length"
 
@@ -141,6 +149,16 @@ class LogInterceptor(val logEnable: Boolean) : Interceptor {
         } catch (var6: EOFException) {
             false
         }
+    }
 
+    private fun bodyToString(request: Request): String {
+        return try {
+            val copyRequest= request?.newBuilder()?.build()
+            val buffer:Buffer = Buffer()
+            copyRequest.body?.writeTo(buffer)
+            buffer.readUtf8()
+        }catch (e:IOException){
+            "error"
+        }
     }
 }
