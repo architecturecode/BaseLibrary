@@ -14,7 +14,9 @@ import com.base.baselibrary.network.manager.NetworkStateManager
  * 时间　: 2021/11/18
  * 描述　: ViewModelActivity基类，把ViewModel注入进来了
  */
-abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
+abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity() {
+
+    private var isUseDB = false
 
     lateinit var viewModel: VM
 
@@ -28,11 +30,18 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        setContentView(getLayoutId())
-
+        if (isUseDB){
+           initDataBind()
+        }else setContentView(getLayoutId())
         init(savedInstanceState)
     }
+
+    fun userDataBinding(isUseDB:Boolean){
+        this.isUseDB = isUseDB
+    }
+
+    //供子类BaseDBActivity 操作
+    open fun initDataBind(){}
 
     private fun init(savedInstanceState: Bundle?){
        viewModel =createViewModel()
@@ -40,7 +49,7 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
         registerUIChange()
         initViews(savedInstanceState)
         //
-//        createObserver()
+        createObserver()
         //网络状态
         NetworkStateManager.instance.networkStateCallBack.observeInActivity(this) {
             onNetworkStateChanged(it)
@@ -72,7 +81,7 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
     /**
      * 创建LiveData数据观察者
      */
-//    abstract fun createObserver()
+    abstract fun createObserver()
 
     /**
      * 注册UI事件

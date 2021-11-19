@@ -5,3 +5,5 @@
 /build/
 /app/sampledata/
 /app/build/generated/res/resValues/debug/
+/local.properties
+/app/sampledata/
