@@ -5,31 +5,32 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.*
 import androidx.activity.viewModels
-import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
-import com.base.baselibrary.base.activity.BaseVmDbActivity
-import com.base.baselibrary.ext.commom.encodeStringToMD5
-import com.base.baselibrary.ext.nav
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.base.baselibrary.ext.parseState
+import com.base.library.base.BaseActivity
+import com.base.library.base.constants.RouterPath
+import com.base.library.base.constants.RouterFlag
 import com.base.library.base.ext.hideSoftKeyboard
 import com.base.library.base.ext.showMessage
-import com.base.library.databinding.ActivityMain2Binding
+import com.base.library.databinding.ActivitySecondBinding
 import com.base.library.module.login.viewmodel.LoginViewModel
 import com.base.library.module.login.viewmodel.RequestLoginViewModel
 
 
-class MainActivity2 : BaseVmDbActivity<LoginViewModel, ActivityMain2Binding>() {
+@Route(path = RouterPath.ACT_SECOND_URL,extras = RouterFlag.Flag_LOGIN)
+class SecondActivity : BaseActivity<LoginViewModel, ActivitySecondBinding>() {
 
 
     //添加activity或Fragment ktx依赖
     private val loginViewModel: RequestLoginViewModel by viewModels()
 
-    override fun getLayoutId() = R.layout.activity_main2
+    override fun getLayoutId() = R.layout.activity_second
 
     override fun initViews(savedInstanceState: Bundle?) {
         addLoadingObserve(loginViewModel)
-        mDataBinding.viewmodel = viewModel
-        mDataBinding.click = ProxyClick()
+//        mDataBinding.viewmodel = viewModel
+//        mDataBinding.click = ProxyClick()
     }
 
     override fun showLoading(message: String) {
@@ -49,6 +50,7 @@ class MainActivity2 : BaseVmDbActivity<LoginViewModel, ActivityMain2Binding>() {
 //                    Toast.makeText(this,"登录成功",Toast.LENGTH_LONG).show()
 //                    finish()
                 }, {
+                    showMessage(it.errorMsg)
                     Log.e("wht", it.errorMsg)
                 })
             })
@@ -82,8 +84,8 @@ class MainActivity2 : BaseVmDbActivity<LoginViewModel, ActivityMain2Binding>() {
         }
 
         fun goForgetPwd() {
-            hideSoftKeyboard(this@MainActivity2)
-            startActivity(Intent(this@MainActivity2, MainActivity2::class.java))
+            hideSoftKeyboard(this@SecondActivity)
+            startActivity(Intent(this@SecondActivity, SecondActivity::class.java))
 //            nav(btnLogin).navigateAction(R.id.btn_login)
         }
 

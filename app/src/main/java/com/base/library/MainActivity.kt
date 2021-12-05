@@ -1,6 +1,5 @@
 package com.base.library
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -8,12 +7,18 @@ import android.widget.CheckBox
 import android.widget.CompoundButton
 import android.widget.EditText
 import androidx.activity.viewModels
+import com.alibaba.android.arouter.facade.annotation.Route
+import com.alibaba.android.arouter.launcher.ARouter
 import com.base.baselibrary.base.activity.BaseVmActivity
+import com.base.baselibrary.base.appContent
+import com.base.library.base.constants.RouterPath
+import com.base.library.base.ext.arouterext.LoginNavigationCallbackImpl
 import com.base.library.base.ext.hideSoftKeyboard
 import com.base.library.module.login.viewmodel.LoginViewModel
 import com.base.library.module.login.viewmodel.RequestLoginViewModel
 
 
+@Route(path = RouterPath.ACT_MAIN_URL)
 class MainActivity : BaseVmActivity<LoginViewModel>() {
 
     private lateinit var btnLogin: Button
@@ -77,7 +82,10 @@ class MainActivity : BaseVmActivity<LoginViewModel>() {
 
         fun goForgetPwd() {
             hideSoftKeyboard(this@MainActivity)
-            startActivity(Intent(this@MainActivity, MainActivity2::class.java))
+
+            ARouter.getInstance().build(RouterPath.ACT_SECOND_URL).navigation(appContent,LoginNavigationCallbackImpl())
+//            ARouter.getInstance().build(RouterPath.ACT_SECOND_URL).navigation()
+//            startActivity(Intent(this@MainActivity, SecondActivity::class.java))
 //            nav(btnLogin).navigateAction(R.id.btn_login)
         }
 

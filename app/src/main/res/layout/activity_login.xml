@@ -12,14 +12,14 @@
 
         <variable
             name="click"
-            type="com.base.library.MainActivity2.ProxyClick" />
+            type="com.base.library.module.login.ui.LoginActivity.ProxyClick" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity2">
+        tools:context=".LoginActivity">
 <!--        <TextView-->
 <!--            android:layout_width="wrap_content"-->
 <!--            android:layout_height="wrap_content"-->
@@ -60,7 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="@{()->click.login()}"
-            android:text="Hello World!"
+            android:text="LOGIN!"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
