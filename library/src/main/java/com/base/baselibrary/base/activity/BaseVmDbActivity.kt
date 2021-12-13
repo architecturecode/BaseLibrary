@@ -10,7 +10,7 @@ import com.base.baselibrary.core.viewmodel.BaseViewModel
  * 时间　: 2021/11/18
  * 描述　: ViewModelActivity基类，把ViewModel注入进来了
  */
-abstract class BaseVmDbActivity<VM : BaseViewModel,DB:ViewDataBinding> : BaseVmActivity<VM>() {
+open  abstract class BaseVmDbActivity<VM : BaseViewModel,DB:ViewDataBinding> : BaseVmActivity<VM>() {
 
     lateinit var mDataBinding: DB
 
