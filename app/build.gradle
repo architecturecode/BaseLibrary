@@ -50,7 +50,7 @@ android {
 
 dependencies {
 
-    def room_version = "2.3.5"
+//    def room_version = "2.3.5"
 
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
@@ -80,9 +80,9 @@ dependencies {
     kapt 'com.alibaba:arouter-compiler:1.5.2'
     annotationProcessor 'com.alibaba:arouter-compiler:1.5.2'
 
-    implementation "androidx.room:room-runtime:$room_version"
+//    implementation "androidx.room:room-runtime:$room_version"
     // For Kotlin use kapt instead of annotationProcessor (注意这个注释)
-    kapt "androidx.room:room-compiler:$room_version"
+//    kapt "androidx.room:room-compiler:$room_version"
 
     //prof data store
 //    implementation "androidx.datastore:datastore-core:1.0.0"

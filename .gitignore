@@ -12,3 +12,6 @@
 /app/build/generated/source/kaptKotlin/debug/
 /app/build/generated/source/kapt/debug/
 /build/
+
+# Project exclude paths
+/app/build/
