@@ -8,11 +8,9 @@ import com.alibaba.android.arouter.facade.Postcard
 import com.alibaba.android.arouter.facade.annotation.Interceptor
 import com.alibaba.android.arouter.facade.callback.InterceptorCallback
 import com.alibaba.android.arouter.facade.template.IInterceptor
-import com.alibaba.android.arouter.launcher.ARouter
 import com.base.baselibrary.base.appContent
 import com.base.baselibrary.utils.log.Logger
 import com.base.library.base.constants.RouterFlag
-import com.base.library.base.constants.RouterPath
 
 /**
  * 作者　: wuhaitao
@@ -40,6 +38,9 @@ class UserInterceptor : IInterceptor {
             //
 //            val isLogin :Boolean =
             val isLogin: Boolean = false
+
+
+
             if (!isLogin) {
                 showToast("需要登录")
 
