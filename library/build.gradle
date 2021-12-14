@@ -2,8 +2,11 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
-    id 'maven-publish'
+//    id 'maven-publish'
 }
+
+//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
 
 android {
     compileSdk 31
@@ -47,7 +50,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-
+//    implementation 'com.jetbrains.kotlin:kotlin-stdlib-jdk8:'
 
     // viewModel
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0"
