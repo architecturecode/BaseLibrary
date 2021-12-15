@@ -5,6 +5,8 @@ plugins {
 }
 
 android {
+
+
     compileSdk 31
 
     defaultConfig {
@@ -27,6 +29,11 @@ android {
             }
         }
     }
+
+    lintOptions {
+        abortOnError false
+    }
+
 
     buildTypes {
         release {
