@@ -21,23 +21,23 @@ afterEvaluate {
                 version = '1.0.10'
             }
             // Creates a Maven publication called “debug”.
-            debug(MavenPublication) {
-                // Applies the component for the debug build variant.
-//                from components.debug
-                groupId = 'com.github.architecturecode'
-                artifactId = 'BaseLibrary'
-                version = '1.0.10'
-            }
+//            debug(MavenPublication) {
+//                // Applies the component for the debug build variant.
+////                from components.debug
+//                groupId = 'com.github.architecturecode'
+//                artifactId = 'BaseLibrary'
+//                version = '1.0.10'
+//            }
         }
     }
 }
 android {
-    compileSdk 31
+    compileSdk 30
 
     defaultConfig {
         applicationId "com.base.library"
         minSdk 21
-        targetSdk 31
+        targetSdk 30
         versionCode 1
         versionName "1.0"
 
@@ -72,6 +72,8 @@ android {
     buildFeatures {
         dataBinding true
     }
+    compileSdkVersion 30
+    buildToolsVersion '30.0.2'
 
 }
 
