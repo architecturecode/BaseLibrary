@@ -1,10 +1,8 @@
 package com.base.library.base
 
 import android.os.Bundle
-import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.alibaba.android.arouter.launcher.ARouter
-import com.base.baselibrary.base.activity.BaseVmActivity
 import com.base.baselibrary.base.activity.BaseVmDbActivity
 import com.base.baselibrary.core.viewmodel.BaseViewModel
 
