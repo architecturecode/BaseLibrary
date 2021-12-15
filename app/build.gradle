@@ -2,10 +2,22 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'maven-publish'
+
+}
+
+afterEvaluate{
+    publishing{
+        publications{
+            release(MavenPublication){
+//                from components.release
+
+            }
+        }
+    }
 }
 
 android {
-
 
     compileSdk 31
 
