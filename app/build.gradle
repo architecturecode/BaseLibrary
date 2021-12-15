@@ -5,6 +5,7 @@ plugins {
     id 'maven-publish'
 }
 
+group='com.github.architecturecode'
 
 // Because the components are created only during the afterEvaluate phase, you must
 // configure your publications using the afterEvaluate() lifecycle method.
