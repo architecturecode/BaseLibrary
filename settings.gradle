@@ -7,5 +7,6 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "BaseLibrary"
+rootProject.buildFileName = 'build.gradle'
 include ':app'
 include ':library'
