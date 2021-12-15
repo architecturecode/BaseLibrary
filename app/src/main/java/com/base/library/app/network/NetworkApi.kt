@@ -38,9 +38,9 @@ class NetworkApi : BaseNetworkAPi() {
         builder.apply {
 //            cache(Cache(File(app)))
 //            cookieJar()
-                //示例：添加公共heads 注意要设置在日志拦截器之前，不然Log中会不显示head信息
+            //示例：添加公共heads 注意要设置在日志拦截器之前，不然Log中会不显示head信息
             addInterceptor(HeaderInterceptor())
-                // 示例：添加公共heads 注意要设置在日志拦截器之前，不然Log中会不显示head信息
+            // 示例：添加公共heads 注意要设置在日志拦截器之前，不然Log中会不显示head信息
             addInterceptor(CommonParamsInterceptor())
             //添加缓存拦截器 可传入缓存天数，不传默认7天
 //            addInterceptor(CacheInterceptor())
@@ -50,7 +50,6 @@ class NetworkApi : BaseNetworkAPi() {
             connectTimeout(10, TimeUnit.SECONDS)
             readTimeout(5, TimeUnit.SECONDS)
             writeTimeout(5, TimeUnit.SECONDS)
-
         }
         return builder
 

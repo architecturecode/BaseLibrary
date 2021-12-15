@@ -47,26 +47,27 @@ class LogUtils {
     }
 
     private fun showLongLog(logContent: String, showLength: Int, tag: String?) {
-        if (showLength <= 0 || showLength >= 4000) {
-            showLength == 3076
-        }
+        val length:Int = if (showLength <= 0 || showLength >= 4000) {
+            3076
+        }else
+            showLength
 
-        var logTag: String = if (tag.isNullOrEmpty()) {
+        val logTag: String = if (tag.isNullOrEmpty()) {
             TAG
-        } else {
+        } else
             tag
-        }
+
 
         if (logEnable) {
-            if (logContent.length > showLength) {
-                val show = logContent.substring(0, showLength)
+            if (logContent.length > length) {
+                val show = logContent.substring(0, length)
                 Log.e(logTag, show)
                 /*剩余的字符串如果大于规定显示的长度，截取剩余字符串进行递归，否则打印结果*/
-                if (logContent.length - showLength > showLength) {
-                    val partLog = logContent.substring(showLength, logContent.length)
-                    showLongLog(partLog, showLength, logTag)
+                if (logContent.length - length > length) {
+                    val partLog = logContent.substring(length, logContent.length)
+                    showLongLog(partLog, length, logTag)
                 } else {
-                    val printLog = logContent.substring(showLength, logContent.length)
+                    val printLog = logContent.substring(length, logContent.length)
                     Log.e(logTag, printLog)
                 }
             } else {
