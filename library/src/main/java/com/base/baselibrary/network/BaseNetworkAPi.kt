@@ -37,6 +37,9 @@ abstract class BaseNetworkAPi {
      * 配置http
      */
     private val okhttpClient:OkHttpClient get() {
+
+
+//        return OkHttpClient.Builder().build();
         var builder=RetrofitUrlManager.getInstance().with(OkHttpClient.Builder())
         builder = setHttpClientBuilder(builder)
         return builder.build()
