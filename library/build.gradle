@@ -5,22 +5,45 @@ plugins {
     id 'maven-publish'
 }
 
-group='com.github.architecturecode'
-version  = '1.0.17'
 
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.base'
+                artifactId = 'library'
+                version = '1.0.18'
+            }
+        }
 
-
-publishing {
-    publications {
-        // Creates a Maven publication called "release".
-        maven(MavenPublication) {
-            artifactId = 'BaseLibrary'
-//            from components.java
+        repositories {
+            maven {
+//                allowInsecureProtocol true
+//                name = "nexus"
+//                url = MAVEN_RELEASE_URL
+//                credentials {
+//                    username = MAVEN_USERNAME
+//                    password = MAVEN_PASSWORD
+//                }
+            }
         }
     }
 }
 
-
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            // Creates a Maven publication called "release".
+//            maven(MavenPublication) {
+//                from components.release
+//                groupId ='com.base'
+//                artifactId = 'library'
+//                version ='1.0.18'
+//            }
+//        }
+//    }
+//}
 
 android {
     compileSdk 31
