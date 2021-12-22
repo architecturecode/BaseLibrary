@@ -2,7 +2,7 @@ package com.base.library.module.login.viewmodel
 
 import com.base.baselibrary.callback.livedata.BooleanLiveData
 import com.base.baselibrary.callback.livedata.StringLiveData
-import com.base.baselibrary.core.viewmodel.BaseViewModel
+import com.base.baselibrary.base.viewmodel.BaseViewModel
 
 /**
  * 作者　: wuhaitao

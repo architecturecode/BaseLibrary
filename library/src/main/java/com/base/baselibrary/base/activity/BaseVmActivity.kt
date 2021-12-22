@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.base.baselibrary.core.viewmodel.BaseViewModel
+import com.base.baselibrary.base.viewmodel.BaseViewModel
 import com.base.baselibrary.ext.getVmClazz
 import com.base.baselibrary.network.manager.NetState
 import com.base.baselibrary.network.manager.NetworkStateManager

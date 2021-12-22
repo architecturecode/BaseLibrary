@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.base.baselibrary.base.activity.BaseVmActivity
-import com.base.baselibrary.core.viewmodel.BaseViewModel
+import com.base.baselibrary.base.viewmodel.BaseViewModel
 import com.base.baselibrary.network.AppException
 import com.base.baselibrary.network.dao.BaseResponse
 import com.base.baselibrary.states.ResultState
