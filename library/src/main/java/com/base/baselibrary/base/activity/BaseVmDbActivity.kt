@@ -3,7 +3,7 @@ package com.base.baselibrary.base.activity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.base.baselibrary.core.viewmodel.BaseViewModel
+import com.base.baselibrary.base.viewmodel.BaseViewModel
 
 /**
  * 作者　: wuhaitao

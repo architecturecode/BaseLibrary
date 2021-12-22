@@ -1,7 +1,7 @@
 package com.base.library.module.login.viewmodel
 
 import androidx.lifecycle.MutableLiveData
-import com.base.baselibrary.core.viewmodel.BaseViewModel
+import com.base.baselibrary.base.viewmodel.BaseViewModel
 import com.base.baselibrary.ext.request
 import com.base.baselibrary.states.ResultState
 import com.base.library.app.network.apiService

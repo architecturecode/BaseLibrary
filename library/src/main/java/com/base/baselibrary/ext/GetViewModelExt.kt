@@ -3,7 +3,7 @@ package com.base.baselibrary.ext
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.base.baselibrary.base.BaseApp
-import com.base.baselibrary.core.viewmodel.BaseViewModel
+import com.base.baselibrary.base.viewmodel.BaseViewModel
 import java.lang.reflect.ParameterizedType
 
 /**
